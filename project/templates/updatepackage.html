@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADMIN PAGE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        .updatecard{
+            width: 20rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin:2%;
+            padding:2%;
+            padding-top: 3%;
+        }
+        .buttons{
+            width: 20rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin:2%;
+            padding:2%;
+
+        }
+        .imagediv{
+            width: 41rem;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin:2%;
+            padding:2%;
+            }
+        .img{
+            height:90%;
+            width:95%;
+        }
+
+    </style>
+</head>
+<body class="bg-dark p-5 m-5 text-light">
+    <div class="container-fluid">
+        <div class="row row-md-12">
+        <div class="col-md-1 m-0">
+            <a href="{% url 'viewpackages' %}"><i class="bi bi-arrow-left-square-fill" style="font-size: 30px; color:White"></i></a>
+        </div>
+        <div class="col-md-6 m-0">
+            <h2>Update Package</h2>
+        </div>
+    </div>
+        <form method="POST">
+
+            {% for i in package_data %}
+            {% csrf_token %}
+            <div class="row row-md-12">
+                <div class="col col-md-5 updatecard">
+                    Name :<input type="text" value="{{ i.package_name }}" name="new_package_name" required><br>
+                    Short_description :<input type="text" value="{{ i.short_description }}" name="new_short_description" required><br>
+                    Full_description :<input type="text" value="{{ i.full_description }}" name="new_full_description" required><br>
+                    Area_covers :<input type="text" value="{{ i.area_covers }}" name="new_area_covers" required><br>
+                    Package Image :<input type="file" value="{{i.package_image}}" name="package_image" required><br><br>
+                    <br><br>
+                </div>
+                <div class="col col-md-4 imagediv">
+                    <img src="{{ i.package_image.url }}" style="background-size: cover;" class="img">
+                </div>
+            </div>
+            <div class="row row-md-12">
+                <div class="col col-md-4 buttons text-center">
+                    <input type="submit" value="Submit" class="btn-outline-success">
+                </div>
+                <div class="col col-md-4 buttons text-center">
+                    <a href="{% url 'viewpackages' %}" class="btn-outline-danger">CANCEL</a>
+                </div>
+            </div>
+            {% endfor %}
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+</body>
+</html>

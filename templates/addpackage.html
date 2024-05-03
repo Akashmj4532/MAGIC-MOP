@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Packages</title>
+</head>
+<body>
+    <h2>Add Packages</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="packagename">Package Name:</label><br>
+        <input type="text" id="packagename" name="packagename" required><br><br>
+
+        <label for="short_description">Short Description:</label><br>
+        <textarea id="short_description" name="short_description" required></textarea><br><br>
+
+        <label for="long_description">Long Description:</label><br>
+        <textarea id="long_description" name="long_description" required></textarea><br><br>
+
+        <label for="area_covers">Area Covers:</label><br>
+        <input type="text" id="area_covers" name="area_covers" required><br><br>
+
+        <label for="package_image">Package Image:</label><br>
+        <input type="file" id="package_image" name="package_image" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
