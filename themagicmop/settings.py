@@ -79,13 +79,13 @@ WSGI_APPLICATION = 'themagicmop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'the_magic_mop',
-        'PASSWORD': '',
-        'ROOT': '',
-        'PORT': '',
-        'USER': 'root',
-    }
-}
+        'NAME': 'magicmop',
+        'USER': 'the_magic_mop',
+        'PASSWORD': 'magicmop',
+        'HOST': 'database-1.cxw8waqoslfs.ap-southeast-2.rds.amazonaws.com',
+        'PORT':'3306',
+      }
+  }
 
 
 # Password validation
