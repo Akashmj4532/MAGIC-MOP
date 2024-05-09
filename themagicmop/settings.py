@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-82)qpp^9(gp71tz^j=wlqj3ffk08miv&73t+l8l1g*zr@(fev&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,7 +83,7 @@ DATABASES = {
         'USER': 'the_magic_mop',
         'PASSWORD': 'magicmop',
         'HOST': 'database-1.cxw8waqoslfs.ap-southeast-2.rds.amazonaws.com',
-        'PORT':'3306',
+        'PORT': '3306',
       }
   }
 
