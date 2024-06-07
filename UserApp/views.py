@@ -73,7 +73,7 @@ def profile(request):
 def update(request, user_id):
     data = User.objects.filter(user_id=user_id)
     if request.method == 'POST':
-        print(request.method)
+        # print(request.method)
 
         name = request.POST.get('new_user_name')
         age = request.POST.get('new_age')
@@ -84,7 +84,7 @@ def update(request, user_id):
 
         # Retrieve the user object from the database
 
-        print('user')
+        # print('user')
 
         # Update the fields
         user = User.objects.get(user_id=user_id)
@@ -109,15 +109,15 @@ def delete(request, user_id):
 
 
 def booknow(request, package_id):
-    print('book now called')
+    # print('book now called')
     if 'user_id' in request.session:
         user_id = request.session['user_id']
         user_data = User.objects.filter(user_id=user_id)
 
         package_data = Packages.objects.filter(package_id=package_id)
-        print(package_data)
-        print(user_id)
-        print(user_data)
+        # print(package_data)
+        # print(user_id)
+        # print(user_data)
 
         return render(request, 'booking.html', {'package': package_data, 'user': user_data})
     else:
@@ -125,10 +125,10 @@ def booknow(request, package_id):
 
 
 def confirm(request):
-    print('confirm is called ')
-    print(request.method)
+    # print('confirm is called ')
+    # print(request.method)
     if request.method == 'POST':
-        print(request.method)
+        # print(request.method)
         user_id = User.objects.get(user_id=request.POST.get('user_id'))
         package_id = Packages.objects.get(package_id=request.POST.get('package_id'))
         date = request.POST.get('date')
